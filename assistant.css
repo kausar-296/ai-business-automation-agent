@@ -1,0 +1,28 @@
+.nexus-assistant{position:fixed;right:24px;bottom:24px;z-index:80;font-family:"DM Sans",sans-serif;color:var(--text)}
+.nexus-assistant-fab{display:grid;place-items:center;width:60px;height:60px;border:0;border-radius:50%;background:var(--primary);color:#fff;box-shadow:0 12px 34px rgba(45,55,140,.3);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.nexus-assistant-fab:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(45,55,140,.36)}
+.nexus-assistant-fab:focus-visible,.nexus-assistant button:focus-visible,.nexus-assistant input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.nexus-assistant-fab svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.assistant-fab-close{display:none}.nexus-assistant.is-open .assistant-fab-open{display:none}.nexus-assistant.is-open .assistant-fab-close{display:block}
+.nexus-assistant-panel{position:absolute;right:0;bottom:76px;display:flex;flex-direction:column;width:min(410px,calc(100vw - 32px));height:min(610px,calc(100dvh - 118px));min-height:330px;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:var(--card);box-shadow:0 24px 75px rgba(10,18,42,.24);animation:assistant-enter .18s ease both}
+.nexus-assistant-panel[hidden]{display:none}
+@keyframes assistant-enter{from{opacity:0;transform:translateY(9px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.nexus-assistant-header{display:flex;align-items:center;gap:11px;min-height:72px;padding:14px 17px;border-bottom:1px solid var(--line)}
+.nexus-assistant-mark{display:grid;place-items:center;width:39px;height:39px;flex:none;border-radius:12px;background:var(--soft);color:var(--primary)}
+.nexus-assistant-mark svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.nexus-assistant-header>div{display:grid;gap:4px;min-width:0;flex:1}.nexus-assistant-header strong{font:700 14px Manrope,sans-serif}.nexus-assistant-header small{font-size:12px;color:var(--muted)}
+.nexus-assistant-close{width:31px;height:31px;border:1px solid var(--line);border-radius:8px;background:var(--input);color:var(--muted);font-size:21px;line-height:1;cursor:pointer}
+.nexus-assistant-messages{display:flex;flex:1;flex-direction:column;gap:12px;overflow-y:auto;padding:17px 15px;scroll-behavior:smooth;overscroll-behavior:contain}
+.assistant-message{max-width:92%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--input);animation:assistant-enter .16s ease both}
+.assistant-message-user{align-self:flex-end;border-color:transparent;background:var(--soft)}
+.assistant-message>span{display:block;margin-bottom:5px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.assistant-message>p{margin:0;color:var(--text);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.nexus-assistant-tools{padding:0 15px 10px}.nexus-assistant-summarize{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--primary);font:700 13px "DM Sans",sans-serif;cursor:pointer;transition:border-color .18s,background .18s}.nexus-assistant-summarize:hover{border-color:var(--primary);background:var(--soft)}
+.nexus-assistant-form{display:flex;gap:8px;padding:10px 13px;border-top:1px solid var(--line)}
+.nexus-assistant-form input{width:100%;min-width:0;height:42px;padding:0 12px;border:1px solid var(--line);border-radius:9px;background:var(--input);color:var(--text);font:400 13px "DM Sans",sans-serif;outline:0;transition:border-color .18s,box-shadow .18s}
+.nexus-assistant-form input::placeholder{color:var(--muted)}.nexus-assistant-form input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--focus)}
+.nexus-assistant-form button{display:grid;place-items:center;width:42px;height:42px;flex:none;border:0;border-radius:9px;background:var(--primary);color:#fff;cursor:pointer;transition:background .18s,opacity .18s}.nexus-assistant-form button:hover{background:var(--primary-hover)}.nexus-assistant-form button:disabled,.nexus-assistant-summarize:disabled{opacity:.55;cursor:wait}.nexus-assistant-form button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nexus-assistant-footnote{margin:0;padding:0 15px 12px;color:var(--muted);font-size:11px;line-height:1.4}
+.assistant-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.nexus-assistant{right:15px;bottom:15px}.nexus-assistant-fab{width:54px;height:54px}.nexus-assistant-panel{right:-4px;bottom:67px;width:calc(100vw - 24px);height:min(640px,calc(100dvh - 94px));min-height:300px;border-radius:15px}.nexus-assistant-header{min-height:66px}}
+@media(prefers-reduced-motion:reduce){.nexus-assistant-fab,.nexus-assistant-panel,.assistant-message{animation:none;transition:none}}

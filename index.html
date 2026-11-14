@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Sign in · NexusAI Enterprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="readability.css">
+  <script src="db.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="NexusAI Enterprise home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name">Nexus<span>AI</span><small>ENTERPRISE</small></span>
+      </a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.6A8.5 8.5 0 0 1 8.4 3.8 8.5 8.5 0 1 0 20.2 15.6Z"></path></svg>
+      </button>
+    </header>
+
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="card-eyebrow"><span class="status-dot"></span> SECURE WORKSPACE</div>
+      <h1 id="login-title">Welcome back</h1>
+      <p class="intro">Sign in to continue to your automation workspace.</p>
+
+      <form id="login-form" novalidate>
+        <div class="field-group">
+          <label for="user-id">User ID</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M5 21v-2a7 7 0 0 1 14 0v2"></path></svg>
+            <input id="user-id" name="userId" type="text" autocomplete="username" placeholder="Enter your user ID" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="label-row"><label for="password">Password</label><span class="secure-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Encrypted</span></div>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+            <button class="password-toggle" type="button" aria-label="Show password" data-password-toggle><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+          </div>
+        </div>
+        <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+        <button class="login-button" type="submit"><span>Sign in</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+      </form>
+      <div class="card-footer"><span class="shield-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>Your workspace is protected with enterprise-grade security.</div>
+    </section>
+    <footer class="page-footer"><span>© 2026 NexusAI Enterprise</span><span><i></i> All systems operational</span></footer>
+  </main>
+</body>
+</html>

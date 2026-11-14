@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · NexusAI Enterprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="pms.css">
+  <link rel="stylesheet" href="sales.css">
+  <link rel="stylesheet" href="hrms.css">
+  <link rel="stylesheet" href="finance.css">
+  <link rel="stylesheet" href="operations.css">
+  <link rel="stylesheet" href="readability.css">
+  <link rel="stylesheet" href="notes.css">
+  <link rel="stylesheet" href="assistant.css">
+  <script src="db.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="pms.js" defer></script>
+  <script src="sales.js" defer></script>
+  <script src="hrms.js" defer></script>
+  <script src="finance.js" defer></script>
+  <script src="operations.js" defer></script>
+  <script src="notes.js" defer></script>
+  <script src="assistant.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <a class="brand" href="app.html" aria-label="NexusAI Enterprise"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="brand-name">Nexus<span>AI</span><small>ENTERPRISE</small></span></a>
+      <div class="sidebar-caption">WORKSPACE</div>
+      <a href="#dashboard" class="nav-link active" aria-current="page" data-view-link="dashboard"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="5" rx="1.5"></rect><rect x="13" y="10" width="8" height="11" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect></svg>Dashboard</a>
+      <a href="#projects" class="nav-link" data-view-link="projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"></path><path d="M3 10h18"></path></svg>Projects &amp; Tasks</a>
+      <a href="#sales" class="nav-link" data-sales-nav hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"></path><path d="m7 14 4-4 3 3 6-7"></path><path d="M16 6h4v4"></path></svg>Sales &amp; Stocks</a>
+      <a href="#hrms" class="nav-link" data-hrms-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M20 8v6m-3-3h6"></path></svg>HRMS &amp; Attendance</a>
+      <a href="#finance" class="nav-link" data-finance-nav hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Finance &amp; Invoicing</a>
+      <a href="#operations" class="nav-link" data-operations-nav hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6M2 20h20"></path></svg>Operations &amp; Inventory</a>
+      <a href="#notes" class="nav-link" data-notes-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8m-8 4h8"></path></svg>Notes &amp; Files</a>
+      <div class="sidebar-bottom"><span class="sidebar-status"><i></i> All systems operational</span><span class="sidebar-copy">© 2026 NexusAI Enterprise</span></div>
+    </aside>
+    <main class="dashboard-main" id="dashboard">
+      <header class="dashboard-topbar">
+        <div class="topbar-title"><span class="breadcrumb">Workspace <b>/</b> Dashboard</span><h1>Dashboard</h1></div>
+        <div class="topbar-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.6A8.5 8.5 0 0 1 8.4 3.8 8.5 8.5 0 1 0 20.2 15.6Z"></path></svg></button>
+          <div class="user-menu"><span class="user-avatar" data-user-initials>NA</span><span class="user-meta"><strong data-user-name>Account</strong><small><span data-user-role-badge>Member</span></small></span><button class="logout-button" type="button" data-logout>Sign out</button></div>
+        </div>
+      </header>
+      <section class="dashboard-content app-view" data-app-view="dashboard">
+        <div class="welcome-banner" data-welcome role="status"><span class="welcome-mark">✦</span><span><strong data-welcome-title>Welcome back!</strong><small>Your workspace is ready. Here’s what’s happening today.</small></span><button type="button" data-dismiss-welcome aria-label="Dismiss welcome message">×</button></div>
+        <div class="dashboard-heading"><div><p class="eyebrow" data-today-label></p><h2 data-role-heading>Your overview</h2><p data-role-subtitle>Here’s your workspace at a glance.</p></div><span class="role-pill" data-role-pill>Member</span></div>
+        <div class="dashboard-grid" data-dashboard-content></div>
+      </section>
+      <section class="pms-content app-view" data-app-view="projects" hidden>
+        <div class="pms-page-heading"><div><p class="eyebrow" data-pms-eyebrow>PROJECT MANAGEMENT</p><h2 data-pms-title>Projects &amp; Tasks</h2><p data-pms-description>Track projects, task progress, and submitted work.</p></div><button class="pms-primary" type="button" data-new-project hidden>＋ New project</button></div>
+        <div class="pms-tabs" data-pms-tabs role="tablist"></div>
+        <div class="pms-notice" data-pms-notice role="status" aria-live="polite"></div>
+        <div class="pms-panel" data-pms-panel></div>
+      </section>
+      <section class="sales-content" data-sales-view hidden>
+        <div class="sales-heading"><div><p class="eyebrow">BUSINESS INTELLIGENCE</p><h2>Sales &amp; Stocks</h2><p>Revenue, inventory, and market performance at a glance.</p></div><div class="sales-sync"><span class="sync-indicator"></span><span data-sales-synced>Synced just now</span><button type="button" class="sales-refresh" data-sales-refresh><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"></path><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"></path></svg>Refresh data</button></div></div>
+        <div class="sales-kpis" data-sales-kpis></div>
+        <div class="sales-grid">
+          <section class="sales-card sales-chart-card"><div class="sales-card-heading"><div><h3>Revenue trend</h3><p>Sales performance over the last 7 days</p></div><span class="sales-period">THIS WEEK</span></div><div class="sales-chart" data-revenue-chart></div></section>
+          <section class="sales-card region-card"><div class="sales-card-heading"><div><h3>Regional performance</h3><p>Revenue by sales region</p></div></div><div class="region-list" data-region-list></div></section>
+          <section class="sales-card inventory-card"><div class="sales-card-heading"><div><h3>Product inventory</h3><p>Current stock levels across active SKUs</p></div><span class="table-count" data-inventory-count></span></div><div class="sales-table-wrap"><table class="sales-table"><thead><tr><th>Product</th><th>SKU</th><th>Stock</th><th>Reorder point</th><th>Status</th></tr></thead><tbody data-inventory-table></tbody></table></div></section>
+          <section class="sales-card transactions-card"><div class="sales-card-heading"><div><h3>Recent transactions</h3><p>Latest orders recorded in the mock database</p></div></div><div class="transaction-list" data-transactions></div></section>
+        </div>
+        <div class="sales-footer"><span class="sales-db-dot"></span>Connected to NexusAI Sales DB <span data-sales-record-count></span></div>
+      </section>
+      <section class="hrms-content" data-hrms-view hidden>
+        <div class="hrms-heading"><div><p class="eyebrow" data-hrms-eyebrow>PEOPLE &amp; ATTENDANCE</p><h2 data-hrms-title>HRMS &amp; Attendance</h2><p data-hrms-subtitle>Manage attendance and employee requests.</p></div><span class="hrms-date" data-hrms-date></span></div>
+        <div class="hrms-notice" data-hrms-notice role="status" aria-live="polite"></div>
+        <div class="hrms-panel" data-hrms-panel></div>
+      </section>
+      <section class="finance-content" data-finance-view hidden>
+        <div class="finance-heading"><div><p class="eyebrow">FINANCIAL OPERATIONS</p><h2>Finance &amp; Invoicing</h2><p>Budgets, payables, receivables, and cash flow overview.</p></div><span class="finance-period"><i></i> Current fiscal period</span></div>
+        <div class="finance-kpis" data-finance-kpis></div>
+        <section class="finance-panel finance-budget-panel"><div class="finance-panel-heading"><div><h3>Project budgets &amp; allocations</h3><p>Budget utilization across active company projects</p></div></div><div class="finance-budget-list" data-budget-list></div></section>
+        <div class="finance-lower-grid"><section class="finance-panel"><div class="finance-panel-heading"><div><h3>Invoicing &amp; cash flow</h3><p>Open invoices and recent financial movements</p></div><button class="finance-primary" type="button" data-generate-invoice>＋ Generate invoice</button></div><div class="finance-cash-summary" data-cash-summary></div><div class="finance-transactions" data-finance-transactions></div></section><section class="finance-panel"><div class="finance-panel-heading"><div><h3>Accounts overview</h3><p>Current period balances</p></div></div><div class="finance-account-list" data-account-list></div></section></div>
+        <div class="finance-db-footer"><i></i> NexusAI Finance DB <span data-finance-sync></span></div>
+      </section>
+      <section class="operations-content" data-operations-view hidden>
+        <div class="operations-heading"><div><p class="eyebrow">INFRASTRUCTURE &amp; RESOURCES</p><h2>Operations &amp; Inventory</h2><p>Hardware, software seats, and infrastructure health monitoring.</p></div><div class="operations-sync"><span class="ops-pulse"></span><span data-ops-sync-label>Synced just now</span><button type="button" class="ops-refresh" data-ops-refresh>Refresh status</button></div></div>
+        <div class="ops-summary" data-ops-summary></div>
+        <div class="ops-grid"><section class="ops-panel ops-hardware"><div class="ops-panel-heading"><div><h3>Office resources &amp; hardware</h3><p>Stock levels and reorder alerts</p></div></div><div class="ops-resource-list" data-ops-resources></div></section><section class="ops-panel ops-licenses"><div class="ops-panel-heading"><div><h3>Software license seats</h3><p>Active seats compared with purchased capacity</p></div></div><div class="ops-license-list" data-ops-licenses></div></section><section class="ops-panel ops-servers"><div class="ops-panel-heading"><div><h3>Server &amp; cloud uptime</h3><p>Current health across cloud regions and core services</p></div><span class="ops-overall"><i></i> All systems nominal</span></div><div class="ops-server-list" data-ops-servers></div></section></div>
+        <div class="ops-db-footer"><i></i> NexusAI Operations DB <span data-ops-db-meta></span></div>
+      </section>
+      <section class="notes-content" data-notes-view hidden>
+        <div class="notes-heading"><div><p class="eyebrow">PERSONAL WORKSPACE</p><h2>Notes &amp; Files</h2><p>Your private notes and attachments, saved to your account.</p></div><button class="notes-primary" type="button" data-new-note>＋ New note</button></div>
+        <div class="notes-toolbar"><label class="notes-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><input type="search" data-notes-search placeholder="Search your notes and files" aria-label="Search your notes and files"></label><span class="notes-count" data-notes-count></span></div>
+        <div class="notes-notice" data-notes-notice role="status" aria-live="polite"></div>
+        <div class="notes-grid" data-notes-grid></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
