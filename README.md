@@ -79,6 +79,7 @@ Key source files:
 - `db.js` — centralized mock company data, initialization, migration, and compatibility views.
 - `app.js` — sign-in, theme, session handling, attendance check-in, and role-based dashboard.
 - `pms.js`, `sales.js`, `hrms.js`, `finance.js`, `operations.js`, and `notes.js` — module workflows and rendering.
+- `settings.js` and `settings.css` — role-wide appearance and Gemini key preferences.
 - `assistant.js` and `assistant.css` — floating Gemini assistant, active-view context extraction, and widget styling.
 - `app.html` and the CSS files — workspace structure and shared/module-specific presentation.
 
@@ -151,6 +152,12 @@ Managers work with their configured department scope. HR managers work with HR-s
 - Create, edit, search, and delete personal notes with file or image attachments.
 - Notes remain scoped to the current user's ID; users cannot access another account's notes through the module.
 
+### Settings
+
+- Available to every signed-in role from the sidebar.
+- Choose Normal / Dark Mode, Light Mode, or Bright Mode / Vivid Accent. The selection updates the shared CSS tokens immediately and persists as `nexus-theme`.
+- Save a Google Gemini API key in the masked **Google Gemini API Key** field. The value is stored in `nexus-gemini-key` and the assistant reads the saved value for each request, so changes apply immediately.
+
 ### Context-aware Gemini AI assistant
 
 - Floating bottom-right chat widget is available across authenticated views.
@@ -177,12 +184,12 @@ User IDs are case-insensitive. These demo credentials are configured in `db.js` 
 ## Gemini AI setup
 
 1. Create a Gemini API key through Google AI Studio.
-2. Open `assistant.js` and replace the placeholder value assigned to `GEMINI_API_KEY` on line 9 with your key.
-3. Reload `app.html` while signed in and try the assistant.
+2. Sign in, open **Settings** from the sidebar, enter the key in **Google Gemini API Key**, and select **Save API Key**.
+3. Open the assistant and send a question; the saved key is read immediately without reloading the page.
 
-The assistant calls Google's [`generateContent` REST endpoint](https://ai.google.dev/api/generate-content) using the `gemini-2.5-flash` model. If the key is missing or the request fails, the chat displays a helpful error message.
+The assistant calls Google's [`generateContent` REST endpoint](https://ai.google.dev/api/generate-content) using the `gemini-2.5-flash` model. The key is stored under `nexus-gemini-key` in browser localStorage, masked in Settings by default, and can be shown with the visibility toggle. If the key is missing or the request fails, the chat displays a helpful message, including a link to Settings when setup is needed.
 
-**API key handling:** `assistant.js` is client-side code, so any key placed there is visible to users in the browser. This setup is suitable only for local development or a controlled demonstration. For production, keep the key on a server and send requests through an authenticated backend proxy with rate limits and appropriate access controls.
+**API key handling:** A key saved in browser localStorage is accessible to users of that browser and can be inspected by client-side code. This setup is suitable only for local development or a controlled demonstration. For production, keep the key on a server and send requests through an authenticated backend proxy with rate limits and appropriate access controls.
 
 ## Data, privacy, and security notes
 

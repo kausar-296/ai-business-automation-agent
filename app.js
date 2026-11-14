@@ -1,13 +1,23 @@
 ﻿(() => {
   const storedTheme = localStorage.getItem('nexus-theme');
   const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  document.body.dataset.theme = storedTheme || preferredTheme;
+  const allowedThemes = ['dark', 'light', 'bright'];
+  const initialTheme = allowedThemes.includes(storedTheme) ? storedTheme : preferredTheme;
+  document.body.dataset.theme = initialTheme;
+  window.NexusTheme = {
+    setTheme(theme) {
+      const selected = allowedThemes.includes(theme) ? theme : 'light';
+      document.body.dataset.theme = selected;
+      localStorage.setItem('nexus-theme', selected);
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      themeButton?.setAttribute('aria-label', `Switch to ${selected === 'dark' ? 'light' : 'dark'} mode`);
+      document.dispatchEvent(new CustomEvent('nexus-theme-change', { detail: { theme: selected } }));
+      return selected;
+    }
+  };
 
   document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
-    const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.body.dataset.theme = nextTheme;
-    localStorage.setItem('nexus-theme', nextTheme);
-    document.querySelector('[data-theme-toggle]').setAttribute('aria-label', `Switch to ${nextTheme === 'dark' ? 'light' : 'dark'} mode`);
+    window.NexusTheme.setTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark');
   });
 
   const passwordInput = document.querySelector('#password');

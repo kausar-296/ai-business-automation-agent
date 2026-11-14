@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="readability.css">
   <link rel="stylesheet" href="notes.css">
   <link rel="stylesheet" href="assistant.css">
+  <link rel="stylesheet" href="settings.css">
   <script src="db.js" defer></script>
   <script src="app.js" defer></script>
   <script src="pms.js" defer></script>
@@ -25,6 +26,7 @@
   <script src="finance.js" defer></script>
   <script src="operations.js" defer></script>
   <script src="notes.js" defer></script>
+  <script src="settings.js" defer></script>
   <script src="assistant.js" defer></script>
 </head>
 <body data-page="dashboard">
@@ -39,6 +41,7 @@
       <a href="#finance" class="nav-link" data-finance-nav hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Finance &amp; Invoicing</a>
       <a href="#operations" class="nav-link" data-operations-nav hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6M2 20h20"></path></svg>Operations &amp; Inventory</a>
       <a href="#notes" class="nav-link" data-notes-nav><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M8 13h8m-8 4h8"></path></svg>Notes &amp; Files</a>
+      <a href="#settings" class="nav-link" data-settings-nav><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.7 2.9-.2-.1a1.7 1.7 0 0 0-1.9.1 1.7 1.7 0 0 0-.8 1.5v.2H9.8v-.2a1.7 1.7 0 0 0-.8-1.5 1.7 1.7 0 0 0-1.9-.1l-.2.1-1.7-2.9.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-.9h-.2v-3.4h.2a1.7 1.7 0 0 0 1.5-.9 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.7-2.9.2.1a1.7 1.7 0 0 0 1.9-.1 1.7 1.7 0 0 0 .8-1.5v-.2h5.4v.2a1.7 1.7 0 0 0 .8 1.5 1.7 1.7 0 0 0 1.9.1l.2-.1 1.7 2.9-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5.9h.2V14h-.2a1.7 1.7 0 0 0-1.5 1Z"></path></svg>Settings</a>
       <div class="sidebar-bottom"><span class="sidebar-status"><i></i> All systems operational</span><span class="sidebar-copy">© 2026 NexusAI Enterprise</span></div>
     </aside>
     <main class="dashboard-main" id="dashboard">
@@ -93,6 +96,26 @@
         <div class="notes-toolbar"><label class="notes-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><input type="search" data-notes-search placeholder="Search your notes and files" aria-label="Search your notes and files"></label><span class="notes-count" data-notes-count></span></div>
         <div class="notes-notice" data-notes-notice role="status" aria-live="polite"></div>
         <div class="notes-grid" data-notes-grid></div>
+      </section>
+      <section class="settings-content" data-settings-view hidden>
+        <div class="settings-heading"><div><p class="eyebrow">PREFERENCES &amp; INTEGRATIONS</p><h2>Settings</h2><p>Customize your workspace and manage the Gemini connection.</p></div></div>
+        <div class="settings-grid">
+          <section class="settings-card"><div class="settings-card-heading"><span class="settings-card-icon" aria-hidden="true">◐</span><div><h3>Appearance</h3><p>Choose how NexusAI looks on this device.</p></div></div>
+            <div class="settings-theme-options" role="group" aria-label="Choose a theme">
+              <button type="button" class="settings-theme-option" data-set-theme="dark" aria-pressed="false"><span class="settings-theme-preview theme-preview-dark"><i></i><i></i><i></i></span><strong>Normal / Dark Mode</strong><small>Standard enterprise dark theme</small></button>
+              <button type="button" class="settings-theme-option" data-set-theme="light" aria-pressed="false"><span class="settings-theme-preview theme-preview-light"><i></i><i></i><i></i></span><strong>Light Mode</strong><small>Clean, high-contrast bright theme</small></button>
+              <button type="button" class="settings-theme-option" data-set-theme="bright" aria-pressed="false"><span class="settings-theme-preview theme-preview-bright"><i></i><i></i><i></i></span><strong>Bright Mode / Vivid Accent</strong><small>Bright surfaces with vivid accent color</small></button>
+            </div>
+          </section>
+          <section class="settings-card"><div class="settings-card-heading"><span class="settings-card-icon settings-key-icon" aria-hidden="true">⌑</span><div><h3>Google Gemini API Key</h3><p>Stored in this browser and used by the AI assistant.</p></div></div>
+            <form class="settings-key-form" data-gemini-key-form>
+              <label for="settings-gemini-key">Google Gemini API Key</label>
+              <div class="settings-key-input-wrap"><input id="settings-gemini-key" name="apiKey" type="password" autocomplete="new-password" spellcheck="false" placeholder="Paste your Gemini API key" required><button type="button" data-toggle-key aria-label="Show API key">Show</button></div>
+              <div class="settings-key-actions"><button class="settings-save-button" type="submit">Save API Key</button><span class="settings-save-status" data-key-status role="status" aria-live="polite"></span></div>
+            </form>
+            <p class="settings-security-note">This key is saved locally in your browser. Do not use a production key in a client-side application.</p>
+          </section>
+        </div>
       </section>
     </main>
   </div>
